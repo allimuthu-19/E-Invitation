@@ -1,0 +1,741 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-brown font-sans antialiased;
+    background-color: #FFFCF7;
+  }
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+
+  /* ══════════════════════════════════════════════════════
+     BUTTONS
+  ══════════════════════════════════════════════════════ */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2
+           border border-champagne text-champagne-deep
+           px-5 py-2.5 rounded-full font-sans text-sm
+           hover:bg-champagne hover:text-ivory
+           transition-all duration-300;
+    /* No tracking-widest or uppercase — both break Tamil script rendering */
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .btn-directions {
+    @apply inline-flex items-center gap-3
+           bg-champagne text-ivory
+           px-8 py-3 rounded-full font-sans text-sm tracking-widest uppercase
+           hover:bg-champagne-deep
+           transition-all duration-300
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2;
+    box-shadow: 0 4px 20px rgba(198,164,106,0.45);
+  }
+  .btn-directions:hover {
+    box-shadow: 0 8px 28px rgba(198,164,106,0.55);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     CARDS
+  ══════════════════════════════════════════════════════ */
+  .card-luxury {
+    @apply bg-white/80 backdrop-blur-sm border border-champagne-pale rounded-2xl p-8;
+    box-shadow: 0 4px 24px rgba(73,55,45,0.10);
+  }
+  .event-card {
+    @apply relative border rounded-2xl px-8 py-7 text-center overflow-hidden;
+    background: linear-gradient(145deg, #FFFCF7 0%, #F8F1E7 60%, #F0E4CE 100%);
+    border-color: #C6A46A;
+    border-width: 1.5px;
+    box-shadow: 0 6px 32px rgba(198,164,106,0.18), 0 2px 8px rgba(73,55,45,0.08);
+  }
+  .event-card::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(198,164,106,0.35);
+    border-radius: 1rem;
+    pointer-events: none;
+  }
+  .contact-card {
+    @apply flex items-center gap-4 border rounded-2xl px-6 py-5
+           hover:border-champagne transition-all duration-300;
+    background: linear-gradient(135deg, #FFFCF7 0%, #F8F1E7 100%);
+    border-color: rgba(198,164,106,0.5);
+    box-shadow: 0 2px 16px rgba(73,55,45,0.08);
+    /* Allow row to wrap on narrow screens so the button never overlaps */
+    flex-wrap: wrap;
+  }
+  .contact-card:hover {
+    box-shadow: 0 6px 28px rgba(198,164,106,0.22);
+  }
+  .contact-icon-circle {
+    @apply w-12 h-12 rounded-full border border-champagne bg-champagne-pale
+           flex items-center justify-center text-champagne-deep flex-shrink-0;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     DIVIDERS
+  ══════════════════════════════════════════════════════ */
+  .divider-gold {
+    @apply flex items-center gap-4 my-8;
+  }
+  .divider-gold::before,
+  .divider-gold::after {
+    content: '';
+    @apply flex-1 h-px;
+    background: linear-gradient(to right, transparent, #C6A46A, transparent);
+    opacity: 0.7;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     TYPOGRAPHY
+  ══════════════════════════════════════════════════════ */
+  .label-caps {
+    @apply text-xs font-sans tracking-[0.2em] uppercase text-champagne-deep;
+  }
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl text-brown text-center;
+  }
+  .quote-text {
+    @apply font-serif italic text-brown/70 text-center leading-relaxed;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     ENVELOPE
+  ══════════════════════════════════════════════════════ */
+  .envelope-wrapper {
+    perspective: 1200px;
+    padding-bottom: 3.5rem;
+  }
+  .envelope-body {
+    @apply relative border rounded-2xl;
+    background: linear-gradient(160deg, #F8F1E7 0%, #FFFCF7 100%);
+    border-color: rgba(198,164,106,0.6);
+    border-width: 1.5px;
+    width: min(320px, 86vw);
+    aspect-ratio: 1.55 / 1;
+    box-shadow:
+      0 24px 64px rgba(73,55,45,0.22),
+      0 4px 16px rgba(73,55,45,0.12),
+      0 0 0 1px rgba(198,164,106,0.15);
+  }
+  .envelope-flap {
+    @apply absolute top-0 left-0 w-full rounded-t-2xl;
+    height: 52%;
+    background: linear-gradient(160deg, #C6A46A 0%, #DFC08A 40%, #F0E4CE 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    z-index: 4;
+  }
+  .envelope-left {
+    @apply absolute bottom-0 left-0 rounded-bl-2xl;
+    width: 50%;
+    height: 56%;
+    background: linear-gradient(135deg, #A8854A 0%, #C6A46A 50%, #EAD7C3 100%);
+    clip-path: polygon(0 100%, 100% 0, 0 0);
+    z-index: 2;
+  }
+  .envelope-right {
+    @apply absolute bottom-0 right-0 rounded-br-2xl;
+    width: 50%;
+    height: 56%;
+    background: linear-gradient(225deg, #A8854A 0%, #C6A46A 50%, #EAD7C3 100%);
+    clip-path: polygon(100% 100%, 0 0, 100% 0);
+    z-index: 2;
+  }
+  .envelope-bottom {
+    @apply absolute bottom-0 left-0 w-full rounded-b-2xl;
+    height: 56%;
+    background: linear-gradient(180deg, #DFC08A 0%, #C6A46A 50%, #A8854A 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    z-index: 1;
+  }
+  .envelope-card {
+    @apply absolute inset-x-5 rounded-lg border
+           flex flex-col items-center justify-center text-center;
+    background: linear-gradient(160deg, #FFFCF7 0%, #F8F1E7 100%);
+    border-color: rgba(198,164,106,0.5);
+    top: 10%;
+    bottom: 12%;
+    z-index: 3;
+    box-shadow: 0 2px 12px rgba(73,55,45,0.10);
+  }
+  .envelope-seal {
+    @apply absolute left-1/2 -translate-x-1/2;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     OPENING SCREEN BACKGROUNDS
+  ══════════════════════════════════════════════════════ */
+
+  /* Full-screen warm ivory + champagne gradient base */
+  .reveal-bg {
+    background:
+      radial-gradient(ellipse 75% 55% at 50% 48%, rgba(198,164,106,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 40% at 10% 10%,  rgba(234,215,195,0.30) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 40% at 90% 90%,  rgba(234,215,195,0.30) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 30% at 90% 10%,  rgba(198,164,106,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 30% at 10% 90%,  rgba(198,164,106,0.12) 0%, transparent 50%),
+      #FFFCF7;
+  }
+
+  /* Warm golden halo behind the envelope */
+  .envelope-halo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -48%);
+    width: min(560px, 95vw);
+    height: min(480px, 75vh);
+    background: radial-gradient(
+      ellipse 65% 55% at 50% 52%,
+      rgba(198,164,106,0.38) 0%,
+      rgba(223,192,138,0.22) 35%,
+      rgba(234,215,195,0.12) 60%,
+      transparent 80%
+    );
+    border-radius: 50%;
+    filter: blur(28px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Soft dark vignette at screen edges */
+  .screen-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 88% 82% at 50% 50%,
+      transparent 50%,
+      rgba(73,55,45,0.08) 75%,
+      rgba(73,55,45,0.20) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Ornamental gold frame — double-line border */
+  .reveal-frame {
+    position: absolute;
+    inset: 14px;
+    border: 1.5px solid rgba(198,164,106,0.55);
+    border-radius: 1.25rem;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .reveal-frame::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(198,164,106,0.28);
+    border-radius: 0.875rem;
+  }
+
+  /* Vertical gold side strips */
+  .reveal-side-left,
+  .reveal-side-right {
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(198,164,106,0.55) 20%,
+      rgba(198,164,106,0.80) 50%,
+      rgba(198,164,106,0.55) 80%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 4;
+  }
+  .reveal-side-left  { left:  clamp(18px, 4vw, 40px); }
+  .reveal-side-right { right: clamp(18px, 4vw, 40px); }
+
+  /* Horizontal gold top/bottom strips */
+  .reveal-top-strip,
+  .reveal-bottom-strip {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(198,164,106,0.55) 20%,
+      rgba(198,164,106,0.80) 50%,
+      rgba(198,164,106,0.55) 80%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 4;
+  }
+  .reveal-top-strip    { top:    clamp(18px, 4vh, 40px); }
+  .reveal-bottom-strip { bottom: clamp(18px, 4vh, 40px); }
+
+  /* Ambient floating gold dust */
+  .gold-dust {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,164,106,1) 0%, rgba(223,192,138,0.6) 55%, transparent 100%);
+    animation: dustFloat var(--dust-dur, 9s) ease-in-out var(--dust-delay, 0s) infinite;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     BOTANICAL CORNERS — large, bold, clearly visible
+  ══════════════════════════════════════════════════════ */
+  .botanical-tl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(140px, 22vw, 220px);
+    opacity: 0.72;
+    pointer-events: none;
+    user-select: none;
+  }
+  .botanical-tr {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(140px, 22vw, 220px);
+    opacity: 0.72;
+    pointer-events: none;
+    user-select: none;
+    transform: scaleX(-1);
+  }
+  .botanical-bl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: clamp(140px, 22vw, 220px);
+    opacity: 0.72;
+    pointer-events: none;
+    user-select: none;
+    transform: scaleY(-1);
+  }
+  .botanical-br {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: clamp(140px, 22vw, 220px);
+    opacity: 0.72;
+    pointer-events: none;
+    user-select: none;
+    transform: scale(-1);
+  }
+
+  /* Smaller botanical for section corners */
+  .botanical-sm-tl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(80px, 14vw, 130px);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+  }
+  .botanical-sm-tr {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(80px, 14vw, 130px);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+    transform: scaleX(-1);
+  }
+  .botanical-sm-bl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: clamp(80px, 14vw, 130px);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+    transform: scaleY(-1);
+  }
+  .botanical-sm-br {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: clamp(80px, 14vw, 130px);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+    transform: scale(-1);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     HERO / MAIN INVITATION SECTION
+  ══════════════════════════════════════════════════════ */
+  .hero-section {
+    position: relative;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 0%,   rgba(198,164,106,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 0%   60%,  rgba(234,215,195,0.22) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 100% 60%,  rgba(234,215,195,0.22) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 40% at 50% 100%,  rgba(198,164,106,0.10) 0%, transparent 55%),
+      #FFFCF7;
+  }
+
+  /* Double-line ornamental border for hero */
+  .hero-frame {
+    position: absolute;
+    inset: clamp(12px, 3vw, 28px);
+    border: 1.5px solid rgba(198,164,106,0.50);
+    border-radius: 1.25rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-frame::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(198,164,106,0.25);
+    border-radius: 0.875rem;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     QUOTE SECTION
+  ══════════════════════════════════════════════════════ */
+  .quote-section {
+    background:
+      linear-gradient(180deg, rgba(198,164,106,0.10) 0%, rgba(234,215,195,0.25) 50%, rgba(198,164,106,0.10) 100%),
+      #F4EDE3;
+    border-top:    1.5px solid rgba(198,164,106,0.40);
+    border-bottom: 1.5px solid rgba(198,164,106,0.40);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     COUNTDOWN SECTION
+  ══════════════════════════════════════════════════════ */
+  .countdown-section {
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 50%, rgba(198,164,106,0.14) 0%, transparent 70%),
+      linear-gradient(180deg, #F8F1E7 0%, #F0E4CE 50%, #F8F1E7 100%);
+    border-top:    1.5px solid rgba(198,164,106,0.35);
+    border-bottom: 1.5px solid rgba(198,164,106,0.35);
+  }
+
+  /* Individual countdown unit card */
+  .countdown-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 72px;
+    padding: 14px 10px 10px;
+    background: linear-gradient(160deg, #FFFCF7 0%, #F8F1E7 100%);
+    border: 1.5px solid rgba(198,164,106,0.55);
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(198,164,106,0.18), 0 1px 4px rgba(73,55,45,0.08);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     EVENTS SECTION
+  ══════════════════════════════════════════════════════ */
+  .events-section {
+    position: relative;
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 50%, rgba(234,215,195,0.28) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 80% 50%, rgba(234,215,195,0.28) 0%, transparent 60%),
+      #FFFCF7;
+  }
+
+  /* ══════════════════════════════════════════════════════
+     VENUE SECTION
+  ══════════════════════════════════════════════════════ */
+  .venue-section {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(198,164,106,0.12) 0%, transparent 65%),
+      linear-gradient(180deg, #F8F1E7 0%, #FFFCF7 100%);
+    border-top: 1.5px solid rgba(198,164,106,0.30);
+  }
+  .venue-details {
+    width: min(100%, 34rem);
+    min-width: 0;
+    padding-inline: 0.5rem;
+  }
+  .venue-name {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    max-width: 100%;
+    margin-inline: auto;
+    color: #49372D;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+  .venue-name-pin {
+    display: inline-flex;
+    flex: 0 0 1em;
+    align-items: center;
+    justify-content: center;
+    color: #A8854A;
+  }
+  .venue-name-pin svg {
+    width: 1em;
+    height: 1em;
+  }
+  .venue-address {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.45rem;
+    margin: 0.65rem auto 0;
+    color: rgba(73,55,45,0.72);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  /* ══════════════════════════════════════════════════════
+     CONTACT SECTION
+  ══════════════════════════════════════════════════════ */
+  .contact-section {
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 50%, rgba(234,215,195,0.22) 0%, transparent 65%),
+      #FFFCF7;
+    border-top: 1.5px solid rgba(198,164,106,0.25);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     PAGE-LEVEL SIDE ORNAMENTS (desktop)
+  ══════════════════════════════════════════════════════ */
+  .page-side-left,
+  .page-side-right {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(198,164,106,0.30) 15%,
+      rgba(198,164,106,0.55) 50%,
+      rgba(198,164,106,0.30) 85%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page-side-left  { left:  clamp(10px, 2.5vw, 24px); }
+  .page-side-right { right: clamp(10px, 2.5vw, 24px); }
+
+  /* ══════════════════════════════════════════════════════
+     HELPFUL LINKS
+  ══════════════════════════════════════════════════════ */
+  .helpful-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+  .link-circle {
+    @apply flex min-w-0 flex-col items-center justify-start gap-2 cursor-pointer;
+    min-height: 44px;
+    padding: 2px;
+  }
+  .link-circle-label {
+    @apply w-full font-sans text-[10px] text-champagne-deep;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .link-circle-icon {
+    @apply w-14 h-14 rounded-full border border-champagne
+           flex items-center justify-center text-champagne-deep
+           transition-all duration-300;
+    flex: 0 0 3.5rem;
+  }
+  .link-circle:hover .link-circle-icon {
+    @apply bg-champagne text-ivory;
+  }
+
+  @media (max-width: 279px) {
+    .helpful-links-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 0.75rem;
+    }
+  }
+
+  /* ══════════════════════════════════════════════════════
+     GOLD REVEAL PARTICLE (burst on envelope open)
+  ══════════════════════════════════════════════════════ */
+  .particle {
+    @apply absolute rounded-full pointer-events-none;
+    animation: particleDrift 2.5s ease-out forwards;
+    background: radial-gradient(circle, #C6A46A 0%, #DFC08A 60%, transparent 100%);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     COUPLE PHOTO FRAME
+  ══════════════════════════════════════════════════════ */
+
+  /* Outer wrapper — controls max size and centering */
+  .photo-frame-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(220px, 60vw, 340px);
+    margin: 0 auto;
+  }
+
+  /* The arch/oval frame container */
+  .photo-frame {
+    position: relative;
+    width: 100%;
+    /* Arch shape: tall rectangle with rounded top */
+    border-radius: 50% 50% 12px 12px / 42% 42% 12px 12px;
+    overflow: hidden;
+    /* Outer gold border */
+    border: 2.5px solid rgba(198,164,106,0.80);
+    box-shadow:
+      0 0 0 5px rgba(198,164,106,0.18),
+      0 0 0 8px rgba(198,164,106,0.10),
+      0 16px 48px rgba(73,55,45,0.18),
+      0 4px 16px rgba(73,55,45,0.10);
+    background: #F8F1E7;
+  }
+
+  /* The actual photo */
+  .photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Subtle warm overlay so photo blends with ivory theme */
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(248,241,231,0.18) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Inner gold ring — sits just inside the border */
+  .photo-frame-inner-ring {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50% 50% 8px 8px / 40% 40% 8px 8px;
+    border: 1px solid rgba(198,164,106,0.40);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Floral ornament strip below the frame */
+  .photo-frame-ornament {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    z-index: 3;
+    white-space: nowrap;
+  }
+
+  /* Small corner florals anchored to the frame wrapper */
+  .photo-corner-tl {
+    position: absolute;
+    top: -14px;
+    left: -14px;
+    width: 64px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+  .photo-corner-tr {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 64px;
+    opacity: 0.75;
+    pointer-events: none;
+    transform: scaleX(-1);
+  }
+  .photo-corner-bl {
+    position: absolute;
+    bottom: -14px;
+    left: -14px;
+    width: 64px;
+    opacity: 0.75;
+    pointer-events: none;
+    transform: scaleY(-1);
+  }
+  .photo-corner-br {
+    position: absolute;
+    bottom: -14px;
+    right: -14px;
+    width: 64px;
+    opacity: 0.75;
+    pointer-events: none;
+    transform: scale(-1);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     VENUE PIN
+  ══════════════════════════════════════════════════════ */
+  .venue-pin {
+    @apply w-20 h-20 rounded-full border-2 border-champagne bg-champagne-pale
+           flex items-center justify-center mx-auto mb-6 text-champagne-deep;
+    box-shadow: 0 4px 20px rgba(198,164,106,0.40);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     DIVIDER GOLD (kept for compatibility)
+  ══════════════════════════════════════════════════════ */
+  .ornament-rule {
+    @apply flex items-center gap-3;
+    pointer-events: none;
+  }
+  .ornament-rule::before,
+  .ornament-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(198,164,106,0.6), transparent);
+  }
+
+  /* Legacy classes kept for compatibility */
+  .botanical-tl-old { @apply botanical-tl; }
+  .page-side-ornament-left  { @apply page-side-left; }
+  .page-side-ornament-right { @apply page-side-right; }
+  .bg-countdown    { @apply countdown-section; }
+  .bg-events       { @apply events-section; }
+  .bg-section-beige { background-color: #FFFCF7; }
+  .bg-hero-paper   { @apply hero-section; }
+  .envelope-glow   { @apply envelope-halo; }
+  .reveal-frame-compat { @apply reveal-frame; }
+  .ornament-border-left  { @apply reveal-side-left; }
+  .ornament-border-right { @apply reveal-side-right; }
+  .hero-inner-border { @apply hero-frame; }
+}

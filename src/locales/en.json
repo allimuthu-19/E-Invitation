@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "events": "Events",
+    "venue": "Venue",
+    "contact": "Contact"
+  },
+  "hero": {
+    "together": "Together Forever",
+    "groomName": "Mithun Chakravarthi (a) Sakthivel S",
+    "brideName": "Gopika R",
+    "ampersand": "&",
+    "invite": "joyfully invite you to celebrate their wedding"
+  },
+  "events": {
+    "title": "Wedding Events",
+    "reception": "Reception",
+    "receptionDate": "Saturday, 21 November 2026",
+    "varaverpu": "Varaverpu",
+    "varaverpuTime": "7:00 PM",
+    "nichayathartham": "Nichayathartham",
+    "nichayatharthamTime": "9:00 PM",
+    "wedding": "Wedding",
+    "weddingDate": "Sunday, 22 November 2026",
+    "subaMuhurtham": "Suba Muhurtham",
+    "subaMuhurthamTime": "6:00 AM – 7:25 AM",
+    "sambandhiVirundhu": "Sambandhi Virundhu",
+    "sambandhiVirundhuTime": "12:00 PM onwards"
+  },
+  "countdown": {
+    "title": "Counting Down to the Wedding",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "arrived": "The Wedding Day Is Here!"
+  },
+  "venue": {
+    "title": "Find Your Way to Our Celebration",
+    "directions": "Get Directions",
+    "mapsLabel": "Open in Google Maps"
+  },
+  "contact": {
+    "title": "Need Help? Contact Us",
+    "callNow": "Call Now"
+  },
+  "links": {
+    "title": "Helpful Links",
+    "location": "Location",
+    "calendar": "Add to Calendar",
+    "contact": "Contact Us"
+  },
+  "envelope": {
+    "awaits": "A Special Invitation Awaits You",
+    "openButton": "Open Your Invitation",
+    "clickToOpen": "Open",
+    "openInvitation": "Open Invitation",
+    "monogram": "M & G"
+  },
+  "footer": {
+    "copy": "© 2026 Mithun Chakravarthi (a) Sakthivel S & Gopika R"
+  }
+}
