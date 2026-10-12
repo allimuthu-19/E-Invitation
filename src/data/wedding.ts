@@ -17,7 +17,7 @@ export const weddingConfig = {
   // ── Couple ────────────────────────────────────────────────────────────────
   couple: {
     groom: {
-      nameEn: 'Mithun Chakravarthi (a) Sakthivel S',
+      nameEn: 'Mithun Chakravarthy (a) Sakthivel S',
       qualification: 'MBA.,',
       parentEn: 'Son of Mr. & Mrs. Sakthivel',
       parentTa: 'திரு. & திருமதி. சக்திவேல் அவர்களின் புதல்வர்',
@@ -39,6 +39,7 @@ export const weddingConfig = {
       dateKey: 'receptionDate',
       schedule: [
         { nameKey: 'varaverpu', timeKey: 'varaverpuTime' },
+        { nameKey: 'urumalaKattuSeer', timeKey: 'urumalaKattuSeerTime' },
         { nameKey: 'nichayathartham', timeKey: 'nichayatharthamTime' },
       ],
       // Venue TBC — leave empty until confirmed

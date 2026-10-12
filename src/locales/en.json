@@ -6,7 +6,7 @@
   },
   "hero": {
     "together": "Together Forever",
-    "groomName": "Mithun Chakravarthi (a) Sakthivel S",
+    "groomName": "Mithun Chakravarthy (a) Sakthivel S",
     "brideName": "Gopika R",
     "ampersand": "&",
     "invite": "joyfully invite you to celebrate their wedding"
@@ -15,13 +15,15 @@
     "title": "Wedding Events",
     "reception": "Reception",
     "receptionDate": "Saturday, 21 November 2026",
-    "varaverpu": "Varaverpu",
+    "varaverpu": "Reception",
     "varaverpuTime": "7:00 PM",
-    "nichayathartham": "Nichayathartham",
+    "urumalaKattuSeer": "Urumala Kattu Seer",
+    "urumalaKattuSeerTime": "8:00 PM",
+    "nichayathartham": "Engagement",
     "nichayatharthamTime": "9:00 PM",
     "wedding": "Wedding",
     "weddingDate": "Sunday, 22 November 2026",
-    "subaMuhurtham": "Suba Muhurtham",
+    "subaMuhurtham": "Wedding Ceremony",
     "subaMuhurthamTime": "6:00 AM – 7:25 AM",
     "sambandhiVirundhu": "Sambandhi Virundhu",
     "sambandhiVirundhuTime": "12:00 PM onwards"
@@ -57,6 +59,6 @@
     "monogram": "M & G"
   },
   "footer": {
-    "copy": "© 2026 Mithun Chakravarthi (a) Sakthivel S & Gopika R"
+    "copy": "© 2026 Mithun Chakravarthy (a) Sakthivel S & Gopika R"
   }
 }
