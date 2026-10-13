@@ -109,10 +109,6 @@ export default function InvitationReveal({ onOpen }: Props) {
           <div className="envelope-halo"       aria-hidden="true" />
           <div className="screen-vignette"     aria-hidden="true" />
           <div className="reveal-frame"        aria-hidden="true" />
-          <div className="reveal-side-left"    aria-hidden="true" />
-          <div className="reveal-side-right"   aria-hidden="true" />
-          <div className="reveal-top-strip"    aria-hidden="true" />
-          <div className="reveal-bottom-strip" aria-hidden="true" />
 
           {/* ── Botanical corners ── */}
           <LuxuryCornerFloral className="botanical-tl" />
