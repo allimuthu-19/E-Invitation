@@ -228,8 +228,8 @@
   /* Ornamental gold frame — double-line border */
   .reveal-frame {
     position: absolute;
-    inset: 14px;
-    border: 1.5px solid rgba(198,164,106,0.55);
+    inset: clamp(12px, 3vw, 28px);
+    border: 1.5px solid rgba(198,164,106,0.50);
     border-radius: 1.25rem;
     pointer-events: none;
     z-index: 3;
@@ -237,52 +237,10 @@
   .reveal-frame::before {
     content: '';
     position: absolute;
-    inset: 6px;
-    border: 1px solid rgba(198,164,106,0.28);
+    inset: 7px;
+    border: 1px solid rgba(198,164,106,0.25);
     border-radius: 0.875rem;
   }
-
-  /* Vertical gold side strips */
-  .reveal-side-left,
-  .reveal-side-right {
-    position: absolute;
-    top: 14px;
-    bottom: 14px;
-    width: 2px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(198,164,106,0.55) 20%,
-      rgba(198,164,106,0.80) 50%,
-      rgba(198,164,106,0.55) 80%,
-      transparent 100%
-    );
-    pointer-events: none;
-    z-index: 4;
-  }
-  .reveal-side-left  { left:  clamp(18px, 4vw, 40px); }
-  .reveal-side-right { right: clamp(18px, 4vw, 40px); }
-
-  /* Horizontal gold top/bottom strips */
-  .reveal-top-strip,
-  .reveal-bottom-strip {
-    position: absolute;
-    left: 14px;
-    right: 14px;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      rgba(198,164,106,0.55) 20%,
-      rgba(198,164,106,0.80) 50%,
-      rgba(198,164,106,0.55) 80%,
-      transparent 100%
-    );
-    pointer-events: none;
-    z-index: 4;
-  }
-  .reveal-top-strip    { top:    clamp(18px, 4vh, 40px); }
-  .reveal-bottom-strip { bottom: clamp(18px, 4vh, 40px); }
 
   /* Ambient floating gold dust */
   .gold-dust {
