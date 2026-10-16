@@ -38,8 +38,8 @@ export const weddingConfig = {
       dateEn: 'Saturday, 21 November 2026',
       dateKey: 'receptionDate',
       schedule: [
-        { nameKey: 'varaverpu', timeKey: 'varaverpuTime' },
         { nameKey: 'urumalaKattuSeer', timeKey: 'urumalaKattuSeerTime' },
+        { nameKey: 'varaverpu', timeKey: 'varaverpuTime' },
         { nameKey: 'nichayathartham', timeKey: 'nichayatharthamTime' },
       ],
       // Venue TBC — leave empty until confirmed
